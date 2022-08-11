@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const mobileBackgroundColor = Color.fromARGB(255, 60, 131, 63);
+const mobileBackgroundColor = Color.fromARGB(255, 255, 255, 255);
 const webBackgroundColor = Color.fromRGBO(18, 18, 18, 1);
 const mobileSearchColor = Color.fromRGBO(38, 38, 38, 1);
 const blueColor = Color.fromARGB(255, 11, 73, 11);
