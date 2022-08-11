@@ -69,9 +69,9 @@ class _PostCardState extends State<PostCard> {
       // boundary needed for web
       decoration: BoxDecoration(
         border: Border.all(
-          color: width > webScreenSize ? secondaryColor : mobileBackgroundColor,
+          color: width > webScreenSize ? secondaryColor : Color.fromARGB(255, 250, 249, 249),
         ),
-        color: mobileBackgroundColor,
+        color: Color.fromARGB(255, 248, 246, 246),
       ),
       padding: const EdgeInsets.symmetric(
         vertical: 10,
@@ -104,6 +104,7 @@ class _PostCardState extends State<PostCard> {
                         Text(
                           widget.snap['username'].toString(),
                           style: const TextStyle(
+                            color: Colors.black,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -149,7 +150,7 @@ class _PostCardState extends State<PostCard> {
                             },
                           );
                         },
-                        icon: const Icon(Icons.more_vert),
+                        icon: const Icon(Icons.more_vert,color: Colors.black,),
                       )
                     : Container(),
               ],
@@ -226,6 +227,7 @@ class _PostCardState extends State<PostCard> {
               IconButton(
                 icon: const Icon(
                   Icons.comment_outlined,
+                  color: Colors.black,
                 ),
                 onPressed: () => Navigator.of(context).push(
                   MaterialPageRoute(
@@ -235,17 +237,7 @@ class _PostCardState extends State<PostCard> {
                   ),
                 ),
               ),
-              IconButton(
-                  icon: const Icon(
-                    Icons.send,
-                  ),
-                  onPressed: () {}),
-              Expanded(
-                  child: Align(
-                alignment: Alignment.bottomRight,
-                child: IconButton(
-                    icon: const Icon(Icons.bookmark_border), onPressed: () {}),
-              ))
+              
             ],
           ),
           //DESCRIPTION AND NUMBER OF COMMENTS
@@ -271,7 +263,7 @@ class _PostCardState extends State<PostCard> {
                   ),
                   child: RichText(
                     text: TextSpan(
-                      style: const TextStyle(color: primaryColor),
+                      style: const TextStyle(color: Colors.black,),
                       children: [
                         TextSpan(
                           text: widget.snap['username'].toString(),
@@ -292,7 +284,7 @@ class _PostCardState extends State<PostCard> {
                       'View all $commentLen comments',
                       style: const TextStyle(
                         fontSize: 16,
-                        color: secondaryColor,
+                        color: Color.fromARGB(255, 36, 36, 36),
                       ),
                     ),
                     padding: const EdgeInsets.symmetric(vertical: 4),
@@ -310,7 +302,7 @@ class _PostCardState extends State<PostCard> {
                     DateFormat.yMMMd()
                         .format(widget.snap['datePublished'].toDate()),
                     style: const TextStyle(
-                      color: secondaryColor,
+                      color: Color.fromARGB(255, 36, 36, 36),
                     ),
                   ),
                   padding: const EdgeInsets.symmetric(vertical: 4),

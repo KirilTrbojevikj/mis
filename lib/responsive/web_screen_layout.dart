@@ -47,7 +47,7 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
         backgroundColor: mobileBackgroundColor,
         centerTitle: false,
         title: SvgPicture.asset(
-          'assets/ic_instagram.svg',
+          'assets/produck-logo.svg',
           color: primaryColor,
           height: 32,
         ),
@@ -66,24 +66,18 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
             ),
             onPressed: () => navigationTapped(1),
           ),
-          IconButton(
+          /*IconButton(
             icon: Icon(
               Icons.add_a_photo,
               color: _page == 2 ? primaryColor : secondaryColor,
             ),
             onPressed: () => navigationTapped(2),
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.favorite,
-              color: _page == 3 ? primaryColor : secondaryColor,
-            ),
-            onPressed: () => navigationTapped(3),
-          ),
+          ),*/
+          
           IconButton(
             icon: Icon(
               Icons.person,
-              color: _page == 4 ? primaryColor : secondaryColor,
+              color: _page == 2 ? primaryColor : secondaryColor,
             ),
             onPressed: () => navigationTapped(4),
           ),

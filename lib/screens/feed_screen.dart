@@ -5,6 +5,8 @@ import 'package:produck/utils/colors.dart';
 import 'package:produck/utils/global_variable.dart';
 import 'package:produck/widgets/post_card.dart';
 
+import 'add_post_screen.dart';
+
 class FeedScreen extends StatefulWidget {
   const FeedScreen({Key? key}) : super(key: key);
 
@@ -18,12 +20,11 @@ class _FeedScreenState extends State<FeedScreen> {
     final width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor:
-          width > webScreenSize ? webBackgroundColor : mobileBackgroundColor,
+      backgroundColor: width > webScreenSize ? webBackgroundColor : appBarColor,
       appBar: width > webScreenSize
           ? null
           : AppBar(
-              backgroundColor: mobileBackgroundColor,
+              backgroundColor: appBarColor,
               centerTitle: false,
               title: SvgPicture.asset(
                 'assets/produck-logo.svg',
@@ -33,10 +34,12 @@ class _FeedScreenState extends State<FeedScreen> {
               actions: [
                 IconButton(
                   icon: const Icon(
-                    Icons.messenger_outline,
-                    color: primaryColor,
+                    Icons.add,
+                    color: Color.fromARGB(255, 0, 0, 0),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    const AddPostScreen();
+                  },
                 ),
               ],
             ),

@@ -50,9 +50,10 @@ class _CommentsScreenState extends State<CommentsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: mobileBackgroundColor,
+        backgroundColor: appBarColor,
         title: const Text(
           'Comments',
+          
         ),
         centerTitle: false,
       ),

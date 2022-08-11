@@ -73,13 +73,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
           )
         : Scaffold(
             appBar: AppBar(
-              backgroundColor: mobileBackgroundColor,
+              backgroundColor: appBarColor,
               title: Text(
                 userData['username'],
+                style: TextStyle(color: Colors.black),
               ),
               centerTitle: false,
             ),
             body: ListView(
+              
               children: [
                 Padding(
                   padding: const EdgeInsets.all(16),

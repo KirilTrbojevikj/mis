@@ -20,12 +20,16 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: mobileBackgroundColor,
+        backgroundColor: Color.fromARGB(206, 223, 219, 219),
         title: Form(
           child: TextFormField(
             controller: searchController,
             decoration:
                 const InputDecoration(labelText: 'Search for a user...'),
+            style: const TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
             onFieldSubmitted: (String _) {
               setState(() {
                 isShowUsers = true;
