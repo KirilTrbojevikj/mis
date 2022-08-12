@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="96" viewBox="0 0 200 96">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 50px;
+        fill: #fdfdfd;
+        text-anchor: middle;
+        font-family: DynaPuff_492.000wght_92.000wdth, DynaPuff_492.000wght_92.000wdth, DynaPuff;
+      }
+    </style>
+  </defs>
+  <text id="Produck" class="cls-1" transform="translate(101.722 63.764) scale(1.076)"><tspan x="0">Produck</tspan></text>
+</svg>

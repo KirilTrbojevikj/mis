@@ -31,18 +31,21 @@ class _FeedScreenState extends State<FeedScreen> {
                 height: 60,
               ),
               actions: <Widget>[
-                Padding(
-                    padding: const EdgeInsets.all(3),
-                  child: GestureDetector(
-                    onTap: (){
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const AddPostScreen()));
-                    },
-                    child: const Icon(
-                      Icons.add,
-                    ),
-                  ),
+                IconButton(
+                  icon: const Icon(Icons.add_card),
+                  tooltip: 'Add review',
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute<void>(
+                      builder: (BuildContext context) {
+                        return Scaffold(
+                          appBar: AppBar(
+                            title: const Text('Add your review'),
+                          ),
+                          body: const AddPostScreen(),
+                        );
+                      },
+                    ));
+                  },
                 ),
               ],
             ),

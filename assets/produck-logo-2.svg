@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="96" viewBox="0 0 200 96">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 58.333px;
+        fill: #faf6f6;
+        text-anchor: middle;
+        font-family: Pacifico;
+      }
+    </style>
+  </defs>
+  <text id="Produck" class="cls-1" x="100.5" y="66.5"><tspan x="100.5">Produck</tspan></text>
+</svg>
