@@ -4,8 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:produck/utils/colors.dart';
 import 'package:produck/utils/global_variable.dart';
 import 'package:produck/widgets/post_card.dart';
-
 import 'add_post_screen.dart';
+import 'package:produck/responsive/mobile_screen_layout.dart';
 
 class FeedScreen extends StatefulWidget {
   const FeedScreen({Key? key}) : super(key: key);
@@ -24,22 +24,25 @@ class _FeedScreenState extends State<FeedScreen> {
       appBar: width > webScreenSize
           ? null
           : AppBar(
-              backgroundColor: appBarColor,
+              backgroundColor: secondaryColor,
               centerTitle: false,
               title: SvgPicture.asset(
                 'assets/produck-logo.svg',
-                color: primaryColor,
-                height: 32,
+                height: 60,
               ),
-              actions: [
-                IconButton(
-                  icon: const Icon(
-                    Icons.add,
-                    color: Color.fromARGB(255, 0, 0, 0),
+              actions: <Widget>[
+                Padding(
+                    padding: const EdgeInsets.all(3),
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const AddPostScreen()));
+                    },
+                    child: const Icon(
+                      Icons.add,
+                    ),
                   ),
-                  onPressed: () {
-                    const AddPostScreen();
-                  },
                 ),
               ],
             ),
@@ -49,7 +52,9 @@ class _FeedScreenState extends State<FeedScreen> {
             AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                color: Colors.white,
+              ),
             );
           }
           return ListView.builder(

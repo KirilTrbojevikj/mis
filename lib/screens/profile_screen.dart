@@ -69,14 +69,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return isLoading
         ? const Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(
+              color: Colors.white,
+            ),
+
           )
         : Scaffold(
             appBar: AppBar(
-              backgroundColor: appBarColor,
+              backgroundColor: secondaryColor,
               title: Text(
                 userData['username'],
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: Colors.white),
               ),
               centerTitle: false,
             ),
@@ -119,7 +122,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         ? FollowButton(
                                             text: 'Sign Out',
                                             backgroundColor:
-                                                mobileBackgroundColor,
+                                                orangeColor,
                                             textColor: primaryColor,
                                             borderColor: Colors.grey,
                                             function: () async {
@@ -136,7 +139,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         : isFollowing
                                             ? FollowButton(
                                                 text: 'Unfollow',
-                                                backgroundColor: Colors.white,
+                                                backgroundColor: orangeColor,
                                                 textColor: Colors.black,
                                                 borderColor: Colors.grey,
                                                 function: () async {
@@ -155,7 +158,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                               )
                                             : FollowButton(
                                                 text: 'Follow',
-                                                backgroundColor: Colors.blue,
+                                                backgroundColor: orangeColor,
                                                 textColor: Colors.white,
                                                 borderColor: Colors.blue,
                                                 function: () async {
@@ -198,6 +201,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         child: Text(
                           userData['bio'],
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
                         ),
                       ),
                     ],
@@ -212,7 +218,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return const Center(
-                        child: CircularProgressIndicator(),
+                        child: CircularProgressIndicator(
+                          color: Colors.white,
+                        ),
                       );
                     }
 

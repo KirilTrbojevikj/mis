@@ -44,7 +44,7 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: mobileBackgroundColor,
+        backgroundColor: secondaryColor,
         centerTitle: false,
         title: SvgPicture.asset(
           'assets/produck-logo.svg',

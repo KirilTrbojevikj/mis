@@ -40,11 +40,16 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => UserProvider(),),
       ],
       child: MaterialApp(
+
         debugShowCheckedModeBanner: false,
         title: 'Produck',
-        theme: ThemeData.dark().copyWith(
-          scaffoldBackgroundColor: mobileBackgroundColor,
-        ),
+         theme: ThemeData.dark().copyWith(
+           scaffoldBackgroundColor: primaryColor,
+           textSelectionTheme: const TextSelectionThemeData(
+             cursorColor: Colors.white,
+           ),
+
+         ),
         home: StreamBuilder(
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {

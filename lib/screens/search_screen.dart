@@ -20,7 +20,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(206, 223, 219, 219),
+        backgroundColor: secondaryColor,
         title: Form(
           child: TextFormField(
             controller: searchController,

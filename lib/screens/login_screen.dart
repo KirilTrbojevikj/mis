@@ -59,14 +59,14 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
+      backgroundColor: secondaryColor,
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
           padding: MediaQuery.of(context).size.width > webScreenSize
               ? EdgeInsets.symmetric(
                   horizontal: MediaQuery.of(context).size.width / 3)
-              : const EdgeInsets.symmetric(horizontal: 32),
+              : const EdgeInsets.symmetric(horizontal: 90 ),
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -77,8 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               SvgPicture.asset(
                 'assets/produck-logo.svg',
-                color: primaryColor,
-                height: 64,
+                height: 100,
               ),
               const SizedBox(
                 height: 64,
@@ -87,6 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 hintText: 'Enter your email',
                 textInputType: TextInputType.emailAddress,
                 textEditingController: _emailController,
+
               ),
               const SizedBox(
                 height: 24,
@@ -114,9 +114,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: const EdgeInsets.symmetric(vertical: 12),
                   decoration: const ShapeDecoration(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(4)),
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
-                    color: blueColor,
+                    color: darkOrangeColor,
                   ),
                 ),
                 onTap: loginUser,
@@ -133,7 +133,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   Container(
                     child: const Text(
-                      'Dont have an account?',
+                      'Don\'t have an account?',
                     ),
                     padding: const EdgeInsets.symmetric(vertical: 8),
                   ),
