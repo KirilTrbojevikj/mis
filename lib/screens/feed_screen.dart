@@ -40,6 +40,7 @@ class _FeedScreenState extends State<FeedScreen> {
                         return Scaffold(
                           appBar: AppBar(
                             title: const Text('Add your review'),
+                            backgroundColor: secondaryColor,
                           ),
                           body: const AddPostScreen(),
                         );
