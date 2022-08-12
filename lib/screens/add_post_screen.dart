@@ -80,7 +80,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
         });
         showSnackBar(
           context,
-          'Posted!',
+          'Added new review!',
         );
         clearImage();
       } else {
@@ -125,13 +125,13 @@ class _AddPostScreenState extends State<AddPostScreen> {
           )
         : Scaffold(
             appBar: AppBar(
-              backgroundColor: darkOrangeColor,
+              backgroundColor: secondaryColor,
               leading: IconButton(
                 icon: const Icon(Icons.arrow_back),
                 onPressed: clearImage,
               ),
               title: const Text(
-                'Post to',
+                'Add review',
               ),
               centerTitle: false,
               actions: <Widget>[
@@ -142,9 +142,9 @@ class _AddPostScreenState extends State<AddPostScreen> {
                     userProvider.getUser.photoUrl,
                   ),
                   child: const Text(
-                    "Post",
+                    "Add review",
                     style: TextStyle(
-                        color: Colors.blueAccent,
+                        color: orangeColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 16.0),
                   ),
@@ -155,7 +155,9 @@ class _AddPostScreenState extends State<AddPostScreen> {
             body: Column(
               children: <Widget>[
                 isLoading
-                    ? const LinearProgressIndicator()
+                    ? const LinearProgressIndicator(
+                  color: orangeColor,
+                )
                     : const Padding(padding: EdgeInsets.only(top: 0.0)),
                 const Divider(),
                 Row(
@@ -170,10 +172,13 @@ class _AddPostScreenState extends State<AddPostScreen> {
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.3,
                       child: TextField(
+                        style: TextStyle(color: secondaryColor),
                         controller: _descriptionController,
+                        cursorColor: secondaryColor,
                         decoration: const InputDecoration(
-                            hintText: "Write a caption...",
-                            border: InputBorder.none),
+                            hintText: "Write your review here...",
+                            hintStyle: TextStyle(color: Colors.black26),
+                            border: InputBorder.none ),
                         maxLines: 8,
                       ),
                     ),

@@ -34,15 +34,11 @@ class _FeedScreenState extends State<FeedScreen> {
                 IconButton(
                   icon: const Icon(Icons.add_card),
                   tooltip: 'Add review',
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute<void>(
+                  onPressed:  ()  {
+                     Navigator.push(context, MaterialPageRoute<void>(
                       builder: (BuildContext context) {
-                        return Scaffold(
-                          appBar: AppBar(
-                            title: const Text('Add your review'),
-                            backgroundColor: secondaryColor,
-                          ),
-                          body: const AddPostScreen(),
+                        return const Card(
+                          child: AddPostScreen(),
                         );
                       },
                     ));
