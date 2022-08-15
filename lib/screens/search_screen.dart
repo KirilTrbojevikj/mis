@@ -25,7 +25,11 @@ class _SearchScreenState extends State<SearchScreen> {
           child: TextFormField(
             controller: searchController,
             decoration:
-                const InputDecoration(labelText: 'Search for a user...'),
+                const InputDecoration(
+                    labelText: 'Search for a user...',
+                    labelStyle: TextStyle(color: orangeColor),
+                    border: InputBorder.none,
+                ),
             style: const TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,

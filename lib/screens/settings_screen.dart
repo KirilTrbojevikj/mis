@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:produck/screens/profile_screen.dart';
+import 'package:produck/utils/colors.dart';
 
 import '../resources/auth_methods.dart';
 import 'login_screen.dart';
@@ -46,7 +47,7 @@ class _SettingsPageState extends State<SettingsPage> {
         ),
         leading: IconButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute<void>(
+            Navigator.pop(context, MaterialPageRoute<void>(
               builder: (BuildContext context) {
                 return Card(
                   child: ProfileScreen(
@@ -72,13 +73,13 @@ class _SettingsPageState extends State<SettingsPage> {
               children: const [
                 Icon(
                   Icons.person,
-                  color: Colors.blue,
+                  color: darkOrangeColor,
                 ),
                 SizedBox(
                   height: 10,
                 ),
                 Text(
-                  "Accout",
+                  "Account",
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
@@ -95,7 +96,7 @@ class _SettingsPageState extends State<SettingsPage> {
             const SizedBox(height: 10),
             buildAccountOption(context, "Change password"),
             buildAccountOption(context, "Content Settings"),
-            buildAccountOption(context, "Privacy and Secutiry"),
+            buildAccountOption(context, "Privacy and Security"),
             buildAccountOption(context, "Other"),
             SizedBox(
               height: 40,
@@ -104,7 +105,7 @@ class _SettingsPageState extends State<SettingsPage> {
               children: [
                 Icon(
                   Icons.volume_up_outlined,
-                  color: Colors.blue,
+                  color: darkOrangeColor,
                 ),
                 SizedBox(
                   width: 10,
@@ -126,7 +127,7 @@ class _SettingsPageState extends State<SettingsPage> {
             buildNotificationOptions(
                 "Theme Dark", valNotify1, onChangeFunction1),
             buildNotificationOptions(
-                "Accout Active", valNotify2, onChangeFunction2),
+                "Account Active", valNotify2, onChangeFunction2),
             buildNotificationOptions("Other", valNotify3, onChangeFunction3),
             SizedBox(
               height: 50,
@@ -178,7 +179,7 @@ class _SettingsPageState extends State<SettingsPage> {
           Transform.scale(
             scale: 0.7,
             child: CupertinoSwitch(
-              activeColor: Colors.blue,
+              activeColor: darkOrangeColor,
               trackColor: Colors.grey,
               value: value,
               onChanged: (bool newValue) {

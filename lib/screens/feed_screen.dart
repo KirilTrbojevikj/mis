@@ -38,6 +38,9 @@ class _FeedScreenState extends State<FeedScreen> {
                      Navigator.push(context, MaterialPageRoute<void>(
                       builder: (BuildContext context) {
                         return const Card(
+                          color: orangeColor,
+                          elevation: 0,
+                          clipBehavior: Clip.none,
                           child: AddPostScreen(),
                         );
                       },
