@@ -50,10 +50,9 @@ class _CommentsScreenState extends State<CommentsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: appBarColor,
+        backgroundColor: secondaryColor,
         title: const Text(
           'Comments',
-          
         ),
         centerTitle: false,
       ),
@@ -67,7 +66,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
             AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(color: darkOrangeColor,),
             );
           }
 
@@ -96,9 +95,12 @@ class _CommentsScreenState extends State<CommentsScreen> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 16, right: 8),
                   child: TextField(
+                    cursorColor: darkOrangeColor,
+                    style: const TextStyle(color: Colors.black),
                     controller: commentEditingController,
                     decoration: InputDecoration(
                       hintText: 'Comment as ${user.username}',
+                      hintStyle: const TextStyle(color:Colors.black38),
                       border: InputBorder.none,
                     ),
                   ),
@@ -115,7 +117,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
                       const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                   child: const Text(
                     'Post',
-                    style: TextStyle(color: Colors.blue),
+                    style: TextStyle(color: darkOrangeColor),
                   ),
                 ),
               )

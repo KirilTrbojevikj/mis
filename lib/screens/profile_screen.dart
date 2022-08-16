@@ -71,14 +71,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return isLoading
         ? const Center(
             child: CircularProgressIndicator(
-              color: Colors.white,
+              color: darkOrangeColor,
             ),
           )
         : Scaffold(
             appBar: AppBar(
               backgroundColor: secondaryColor,
-              title: Text(
-                userData['username'],
+              title: const Text(
+                "Profile",
                 style: TextStyle(color: Colors.white),
               ),
               centerTitle: false,

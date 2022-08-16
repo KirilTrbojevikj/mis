@@ -145,7 +145,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                     userProvider.getUser.photoUrl,
                   ),
                   child: const Text(
-                    "Add review",
+                    "Post",
                     style: TextStyle(
                         color: orangeColor,
                         fontWeight: FontWeight.bold,

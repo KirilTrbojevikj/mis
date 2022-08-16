@@ -216,6 +216,7 @@ class _PostCardState extends State<PostCard> {
                         )
                       : const Icon(
                           Icons.favorite_border,
+                          color: darkOrangeColor,
                         ),
                   onPressed: () => FireStoreMethods().likePost(
                     widget.snap['postId'].toString(),
@@ -254,7 +255,7 @@ class _PostCardState extends State<PostCard> {
                         .copyWith(fontWeight: FontWeight.w800),
                     child: Text(
                       '${widget.snap['likes'].length} likes',
-                      style: Theme.of(context).textTheme.bodyText2,
+                      style: const TextStyle(color: Colors.black45),
                     )),
                 Container(
                   width: double.infinity,
@@ -280,11 +281,12 @@ class _PostCardState extends State<PostCard> {
                 ),
                 InkWell(
                   child: Container(
-                    child: Text(
-                      'View all $commentLen comments',
-                      style: const TextStyle(
+                    child: const Text(
+                      'View discussion',
+                      style: TextStyle(
                         fontSize: 16,
-                        color: Color.fromARGB(255, 36, 36, 36),
+                        color: darkOrangeColor,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     padding: const EdgeInsets.symmetric(vertical: 4),

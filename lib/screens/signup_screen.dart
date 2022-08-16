@@ -82,6 +82,7 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: secondaryColor,
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
@@ -96,7 +97,6 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
               SvgPicture.asset(
                 'assets/produck-logo.svg',
-                color: primaryColor,
                 height: 64,
               ),
               const SizedBox(
@@ -113,7 +113,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       : const CircleAvatar(
                           radius: 64,
                           backgroundImage: NetworkImage(
-                              'https://i.stack.imgur.com/l60Hf.png'),
+                              'https://www.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png'),
                           backgroundColor: Colors.red,
                         ),
                   Positioned(
@@ -176,9 +176,9 @@ class _SignupScreenState extends State<SignupScreen> {
                   padding: const EdgeInsets.symmetric(vertical: 12),
                   decoration: const ShapeDecoration(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(4)),
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
-                    color: orangeColor,
+                    color: darkOrangeColor,
                   ),
                 ),
                 onTap: signUpUser,

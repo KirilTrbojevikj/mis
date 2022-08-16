@@ -27,12 +27,11 @@ class _SearchScreenState extends State<SearchScreen> {
             decoration:
                 const InputDecoration(
                     labelText: 'Search for a user...',
-                    labelStyle: TextStyle(color: orangeColor),
+                    labelStyle: TextStyle(color: mobileBackgroundColor),
                     border: InputBorder.none,
                 ),
             style: const TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
+              color: Colors.white,
             ),
             onFieldSubmitted: (String _) {
               setState(() {

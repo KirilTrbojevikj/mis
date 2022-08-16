@@ -145,7 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     child: Container(
                       child: const Text(
-                        ' Signup.',
+                        '  Signup.',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),

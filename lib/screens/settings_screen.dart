@@ -41,9 +41,10 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: secondaryColor,
         title: const Text(
           "Settings",
-          style: TextStyle(fontSize: 22),
+          style: TextStyle(fontSize: 22, color: Colors.white),
         ),
         leading: IconButton(
           onPressed: () {
@@ -58,7 +59,7 @@ class _SettingsPageState extends State<SettingsPage> {
           },
           icon: const Icon(
             Icons.arrow_back,
-            color: Colors.black,
+            color: Colors.white,
           ),
         ),
       ),
@@ -79,7 +80,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   height: 10,
                 ),
                 Text(
-                  "Account",
+                  " Account",
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
@@ -231,7 +232,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   )),
               const Icon(
                 Icons.arrow_forward_ios,
-                color: Colors.grey,
+                color: Colors.black38,
               )
             ],
           ),
