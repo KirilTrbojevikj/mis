@@ -38,6 +38,9 @@ class _FeedScreenState extends State<FeedScreen> {
                      Navigator.push(context, MaterialPageRoute<void>(
                       builder: (BuildContext context) {
                         return const Card(
+                          color: darkOrangeColor,
+                          elevation: 0,
+                          clipBehavior: Clip.none,
                           child: AddPostScreen(),
                         );
                       },
@@ -53,7 +56,7 @@ class _FeedScreenState extends State<FeedScreen> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
               child: CircularProgressIndicator(
-                color: Colors.white,
+                color: darkOrangeColor,
               ),
             );
           }

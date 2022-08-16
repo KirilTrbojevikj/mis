@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:produck/providers/user_provider.dart';
 import 'package:produck/resources/firestore_methods.dart';
+import 'package:produck/screens/feed_screen.dart';
 import 'package:produck/utils/colors.dart';
 import 'package:produck/utils/utils.dart';
 import 'package:provider/provider.dart';
@@ -51,7 +52,9 @@ class _AddPostScreenState extends State<AddPostScreen> {
               padding: const EdgeInsets.all(20),
               child: const Text("Cancel"),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.of(context).pop(
+                  context
+                );
               },
             )
           ],
@@ -142,7 +145,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                     userProvider.getUser.photoUrl,
                   ),
                   child: const Text(
-                    "Add review",
+                    "Post",
                     style: TextStyle(
                         color: orangeColor,
                         fontWeight: FontWeight.bold,
