@@ -18,8 +18,6 @@ class AuthMethods {
     return model.User.fromSnap(documentSnapshot);
   }
 
-  // Signing Up User
-
   Future<String> signUpUser({
     required String email,
     required String password,
@@ -55,7 +53,7 @@ class AuthMethods {
 
         // adding user in our database
         await _firestore
-            .collection("users")
+            .collection('users')
             .doc(cred.user!.uid)
             .set(_user.toJson());
 
