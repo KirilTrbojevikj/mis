@@ -1,40 +1,41 @@
 {
   "project_info": {
-    "project_number": "585119731880",
-    "project_id": "instagram-clone-4cea4",
-    "storage_bucket": "instagram-clone-4cea4.appspot.com"
+    "project_number": "526045306852",
+    "project_id": "produck-9a362",
+    "storage_bucket": "produck-9a362.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:585119731880:android:5fa7f4f052b09dccee329d",
+        "mobilesdk_app_id": "1:526045306852:android:6db59c7e14bfb7b5b531f1",
         "android_client_info": {
-          "package_name": "com.example.produck"
+          "package_name": "com.produck.produck"
         }
       },
       "oauth_client": [
         {
-          "client_id": "585119731880-fbokpi6g8o08s77nqoqeq2indt82t4v3.apps.googleusercontent.com",
+          "client_id": "526045306852-3cab6foaaqqs3r0r67glic89v0cecarc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAM-GM_ijlA4phTqPYPIcuIzh171Llbqjs"
+          "current_key": "AIzaSyAAnN2GRqyCyhxcqVYRO1dBn-OjyTS1uJ8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "585119731880-fbokpi6g8o08s77nqoqeq2indt82t4v3.apps.googleusercontent.com",
+              "client_id": "526045306852-3cab6foaaqqs3r0r67glic89v0cecarc.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "585119731880-6raijggsm5b3pvqd9p5q858v1injcssn.apps.googleusercontent.com",
+              "client_id": "526045306852-0vreeghodbu1ksv984bp9rv4tdoe475r.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.instagramCloneFlutter"
+                "bundle_id": "com.produck.produck",
+                "app_store_id": "123456789"
               }
             }
           ]
