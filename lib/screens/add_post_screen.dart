@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:produck/providers/user_provider.dart';
 import 'package:produck/resources/firestore_methods.dart';
@@ -18,6 +19,7 @@ class AddPostScreen extends StatefulWidget {
 
 class _AddPostScreenState extends State<AddPostScreen> {
   Uint8List? _file;
+  double _rating = 3.5;
   bool isLoading = false;
   final TextEditingController _descriptionController = TextEditingController();
 
@@ -74,6 +76,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
         _descriptionController.text,
         _file!,
         uid,
+        _rating,
         username,
         profImage,
       );
@@ -172,6 +175,26 @@ class _AddPostScreenState extends State<AddPostScreen> {
                         userProvider.getUser.photoUrl,
                       ),
                     ),
+                    RatingBar(
+                        initialRating: 3.5,
+                        direction: Axis.horizontal,
+                        allowHalfRating: true,
+                        itemCount: 5,
+                        ratingWidget: RatingWidget(
+                            full: const Icon(Icons.star, color: Colors.orange),
+                            half: const Icon(
+                              Icons.star_half,
+                              color: Colors.orange,
+                            ),
+                            empty: const Icon(
+                              Icons.star_outline,
+                              color: Colors.orange,
+                            )),
+                        onRatingUpdate: (value) {
+                          setState(() {
+                            _rating = value;
+                          });
+                        }),
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.3,
                       child: TextField(
