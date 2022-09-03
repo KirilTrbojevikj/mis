@@ -1,5 +1,8 @@
+
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:produck/models/user.dart' as model;
 import 'package:produck/providers/user_provider.dart';
 import 'package:produck/resources/firestore_methods.dart';
@@ -64,6 +67,15 @@ class _PostCardState extends State<PostCard> {
   Widget build(BuildContext context) {
     final model.User user = Provider.of<UserProvider>(context).getUser;
     final width = MediaQuery.of(context).size.width;
+
+    Widget _image(String asset) {
+      return Image.asset(
+        asset,
+        height: 30.0,
+        width: 30.0,
+        color: darkOrangeColor,
+      );
+    }
 
     return Container(
       // boundary needed for web
@@ -256,7 +268,27 @@ class _PostCardState extends State<PostCard> {
                     child: Text(
                       '${widget.snap['likes'].length} likes',
                       style: const TextStyle(color: Colors.black45),
-                    )),
+                    ),
+                ),
+                RatingBar(
+                    ignoreGestures: true,
+                    initialRating:widget.snap['rating'],
+                    direction: Axis.horizontal,
+                    allowHalfRating: true,
+                    itemCount: 5,
+                    ratingWidget: RatingWidget(
+                        full: const Icon(Icons.star, color: darkOrangeColor),
+                        half: const Icon(
+                          Icons.star_half,
+                          color: darkOrangeColor,
+                        ),
+                        empty: const Icon(
+                          Icons.star_outline,
+                          color: darkOrangeColor,
+                        )),
+                    onRatingUpdate: (value) {
+                    }
+                    ),
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.only(
@@ -316,4 +348,5 @@ class _PostCardState extends State<PostCard> {
       ),
     );
   }
+
 }

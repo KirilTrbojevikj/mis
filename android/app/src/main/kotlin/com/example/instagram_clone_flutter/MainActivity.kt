@@ -1,4 +1,4 @@
-package com.example.produck
+package com.produck.produck
 
 import io.flutter.embedding.android.FlutterActivity
 

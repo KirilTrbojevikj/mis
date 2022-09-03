@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.produck">
+    package="com.produck.produck">
    <application
         android:label="produck"
         android:name="${applicationName}"

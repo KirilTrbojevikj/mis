@@ -41,12 +41,13 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
+        physics: const NeverScrollableScrollPhysics(),
         children: homeScreenItems,
         controller: pageController,
         onPageChanged: onPageChanged,
       ),
       bottomNavigationBar: BottomNavigationBar(
-
+        type: BottomNavigationBarType.fixed,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         backgroundColor: secondaryColor,
@@ -74,6 +75,7 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout> {
             label: '',
           ),
         ],
+        iconSize: 30,
         onTap: navigationTapped,
         currentIndex: _page,
       ),
