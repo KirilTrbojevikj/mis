@@ -188,10 +188,10 @@ class _PostCardState extends State<PostCard> {
               children: [
                 SizedBox(
                   height: MediaQuery.of(context).size.height,
-                  width: double.infinity,
+                  width: MediaQuery.of(context).size.width,
                   child: Image.network(
                     widget.snap['postUrl'].toString(),
-                    fit: BoxFit.cover,
+                    fit: BoxFit.contain,
                   ),
                 ),
                 AnimatedOpacity(
