@@ -9,7 +9,6 @@ import 'package:produck/screens/feed_screen.dart';
 import 'package:produck/utils/colors.dart';
 import 'package:produck/utils/utils.dart';
 import 'package:provider/provider.dart';
-
 import '../widgets/text_field_input.dart';
 
 class AddPostScreen extends StatefulWidget {
@@ -24,7 +23,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
   double _rating = 3.5;
   bool isLoading = false;
   final TextEditingController _descriptionController = TextEditingController();
-  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _productNameController = TextEditingController();
   final TextEditingController _locationController = TextEditingController();
 
   _selectImage(BuildContext parentContext) async {
@@ -75,6 +74,8 @@ class _AddPostScreenState extends State<AddPostScreen> {
     try {
       // upload to storage and db
       String res = await FireStoreMethods().uploadPost(
+        _productNameController.text,
+        _locationController.text,
         _descriptionController.text,
         _file!,
         uid,
@@ -212,7 +213,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                       height: 10,
                     ),
                     TextField(
-                      controller: _nameController,
+                      controller: _productNameController,
                       style: const TextStyle(color: secondaryColor),
                       decoration: const InputDecoration(
                           border: OutlineInputBorder(

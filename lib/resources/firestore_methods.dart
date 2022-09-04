@@ -8,7 +8,7 @@ import 'package:uuid/uuid.dart';
 class FireStoreMethods {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  Future<String> uploadPost(String description, Uint8List file, String uid, double rating,
+  Future<String> uploadPost(String productName, String location, String description, Uint8List file, String uid, double rating,
       String username, String profImage) async {
     // asking uid here because we dont want to make extra calls to firebase auth when we can just get from our state management
     String res = "Some error occurred";
@@ -17,6 +17,8 @@ class FireStoreMethods {
           await StorageMethods().uploadImageToStorage('posts', file, true);
       String postId = const Uuid().v1(); // creates unique id based on time
       Post post = Post(
+        productName: productName,
+        location: location,
         description: description,
         uid: uid,
         rating: rating,
