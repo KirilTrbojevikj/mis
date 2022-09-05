@@ -126,8 +126,6 @@ class _SettingsPageState extends State<SettingsPage> {
               height: 10,
             ),
             buildNotificationOptions(
-                "Theme Dark", valNotify1, onChangeFunction1),
-            buildNotificationOptions(
                 "Account Active", valNotify2, onChangeFunction2),
             buildNotificationOptions("Other", valNotify3, onChangeFunction3),
             SizedBox(
