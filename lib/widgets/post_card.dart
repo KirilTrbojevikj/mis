@@ -88,14 +88,11 @@ class _PostCardState extends State<PostCard> {
       padding: const EdgeInsets.symmetric(
         vertical: 10,
       ),
+
       child: Column(
         children: [
           // HEADER SECTION OF THE POST
           Container(
-            padding: const EdgeInsets.symmetric(
-              vertical: 4,
-              horizontal: 16,
-            ).copyWith(right: 0),
             child: Row(
               children: <Widget>[
                 CircleAvatar(
@@ -187,11 +184,9 @@ class _PostCardState extends State<PostCard> {
               alignment: Alignment.center,
               children: [
                 SizedBox(
-                  height: MediaQuery.of(context).size.height,
-                  width: MediaQuery.of(context).size.width,
                   child: Image.network(
                     widget.snap['postUrl'].toString(),
-                    fit: BoxFit.contain,
+                    fit: BoxFit.cover,
                   ),
                 ),
                 AnimatedOpacity(
@@ -270,6 +265,20 @@ class _PostCardState extends State<PostCard> {
                   child: Text(
                     '${widget.snap['likes'].length} likes',
                     style: const TextStyle(color: Colors.black45),
+                  ),
+                ),
+                Container(
+                  child: RichText(
+                    text: TextSpan(
+                      style: const TextStyle(
+                        color: Colors.black,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: ' ${widget.snap['productName']}',
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 RatingBar(

@@ -87,9 +87,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   icon: const Icon(Icons.more_horiz),
                   tooltip: 'Settings',
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute<void>(
-                      builder: (BuildContext context) => const SettingsPage(),
-                    ));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute<void>(
+                          builder: (BuildContext context) =>
+                              const SettingsPage(),
+                        ));
                   },
                 ),
               ],
@@ -160,7 +163,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             crossAxisCount: 3,
                             crossAxisSpacing: 5,
                             mainAxisSpacing: 1.5,
-                            childAspectRatio: 1,
+                            
                           ),
                           itemBuilder: (context, index) {
                             DocumentSnapshot snap =

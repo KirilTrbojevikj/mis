@@ -6,6 +6,7 @@ import 'package:produck/utils/global_variable.dart';
 import 'package:produck/widgets/post_card.dart';
 import 'add_post_screen.dart';
 import 'package:produck/responsive/mobile_screen_layout.dart';
+import 'package:dynamic_height_grid_view/dynamic_height_grid_view.dart';
 
 class FeedScreen extends StatefulWidget {
   const FeedScreen({Key? key}) : super(key: key);
@@ -34,8 +35,8 @@ class _FeedScreenState extends State<FeedScreen> {
                 IconButton(
                   icon: const Icon(Icons.add_card),
                   tooltip: 'Add review',
-                  onPressed:  ()  {
-                     Navigator.push(context, MaterialPageRoute<void>(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute<void>(
                       builder: (BuildContext context) {
                         return const Card(
                           color: darkOrangeColor,
@@ -60,13 +61,13 @@ class _FeedScreenState extends State<FeedScreen> {
               ),
             );
           }
-          return ListView.builder(
+          return DynamicHeightGridView(
             itemCount: snapshot.data!.docs.length,
-            itemBuilder: (ctx, index) => Container(
-              margin: EdgeInsets.symmetric(
-                horizontal: width > webScreenSize ? width * 0.3 : 0,
-                vertical: width > webScreenSize ? 15 : 0,
-              ),
+            crossAxisCount: 2,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            builder: (ctx, index) => Container(
+              padding: const EdgeInsets.all(5),
               child: PostCard(
                 snap: snapshot.data!.docs[index].data(),
               ),
