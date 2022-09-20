@@ -28,3 +28,6 @@ After cloning this repository, migrate to ```produck``` folder. Then, follow the
 **Client**: Flutter, Provider
 
 
+Creators:
+Kiril Trbojevik 185063
+Ivana Shishoska 185015
