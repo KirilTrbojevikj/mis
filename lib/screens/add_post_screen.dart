@@ -9,6 +9,7 @@ import 'package:produck/screens/feed_screen.dart';
 import 'package:produck/utils/colors.dart';
 import 'package:produck/utils/utils.dart';
 import 'package:provider/provider.dart';
+import '../widgets/text_field_input.dart';
 
 class AddPostScreen extends StatefulWidget {
   const AddPostScreen({Key? key}) : super(key: key);
@@ -22,6 +23,8 @@ class _AddPostScreenState extends State<AddPostScreen> {
   double _rating = 3.5;
   bool isLoading = false;
   final TextEditingController _descriptionController = TextEditingController();
+  final TextEditingController _productNameController = TextEditingController();
+  final TextEditingController _locationController = TextEditingController();
 
   _selectImage(BuildContext parentContext) async {
     return showDialog(
@@ -54,9 +57,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
               padding: const EdgeInsets.all(20),
               child: const Text("Cancel"),
               onPressed: () {
-                Navigator.of(context).pop(
-                  context
-                );
+                Navigator.of(context).pop(context);
               },
             )
           ],
@@ -73,6 +74,8 @@ class _AddPostScreenState extends State<AddPostScreen> {
     try {
       // upload to storage and db
       String res = await FireStoreMethods().uploadPost(
+        _productNameController.text,
+        _locationController.text,
         _descriptionController.text,
         _file!,
         uid,
@@ -162,17 +165,27 @@ class _AddPostScreenState extends State<AddPostScreen> {
               children: <Widget>[
                 isLoading
                     ? const LinearProgressIndicator(
-                  color: orangeColor,
-                )
+                        color: orangeColor,
+                      )
                     : const Padding(padding: EdgeInsets.only(top: 0.0)),
                 const Divider(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
-                    CircleAvatar(
-                      backgroundImage: NetworkImage(
-                        userProvider.getUser.photoUrl,
+                    SizedBox(
+                      height: 200.0,
+                      width: 200.0,
+                      child: AspectRatio(
+                        aspectRatio: 487 / 451,
+                        child: Container(
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                            fit: BoxFit.contain,
+                            alignment: FractionalOffset.topCenter,
+                            image: MemoryImage(_file!),
+                          )),
+                        ),
                       ),
                     ),
                     RatingBar(
@@ -181,13 +194,14 @@ class _AddPostScreenState extends State<AddPostScreen> {
                         allowHalfRating: true,
                         itemCount: 5,
                         ratingWidget: RatingWidget(
-                            full: const Icon(Icons.star, color: Colors.orange),
+                            full: const Icon(Icons.star_rounded,
+                                color: Colors.orange),
                             half: const Icon(
-                              Icons.star_half,
+                              Icons.star_half_rounded,
                               color: Colors.orange,
                             ),
                             empty: const Icon(
-                              Icons.star_outline,
+                              Icons.star_outline_rounded,
                               color: Colors.orange,
                             )),
                         onRatingUpdate: (value) {
@@ -195,32 +209,52 @@ class _AddPostScreenState extends State<AddPostScreen> {
                             _rating = value;
                           });
                         }),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.3,
-                      child: TextField(
-                        style: TextStyle(color: secondaryColor),
-                        controller: _descriptionController,
-                        cursorColor: secondaryColor,
-                        decoration: const InputDecoration(
-                            hintText: "Write your review here...",
-                            hintStyle: TextStyle(color: Colors.black26),
-                            border: InputBorder.none ),
-                        maxLines: 8,
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    TextField(
+                      controller: _productNameController,
+                      style: const TextStyle(color: secondaryColor),
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromARGB(255, 218, 154, 17),
+                            ),
+                          ),
+                          hintStyle: TextStyle(color: Colors.black26),
+                          hintText: "Enter product name"),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    TextField(
+                      controller: _locationController,
+                      style: const TextStyle(color: secondaryColor),
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 218, 154, 17),
+                          ),
+                        ),
+                        hintStyle: TextStyle(color: Colors.black26),
+                        hintText: "Enter location",
                       ),
                     ),
                     SizedBox(
-                      height: 45.0,
-                      width: 45.0,
-                      child: AspectRatio(
-                        aspectRatio: 487 / 451,
-                        child: Container(
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                            fit: BoxFit.fill,
-                            alignment: FractionalOffset.topCenter,
-                            image: MemoryImage(_file!),
-                          )),
-                        ),
+                      width: MediaQuery.of(context).size.width * 0.3,
+                      child: TextField(
+                        style: const TextStyle(color: secondaryColor),
+                        controller: _descriptionController,
+                        cursorColor: secondaryColor,
+                        decoration: const InputDecoration(
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color.fromARGB(255, 218, 154, 17),
+                              ),
+                            ),
+                            hintText: "Write your review here...",
+                            hintStyle: TextStyle(color: Colors.black26)),
+                        maxLines: 10,
                       ),
                     ),
                   ],

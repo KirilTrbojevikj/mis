@@ -84,16 +84,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
               centerTitle: false,
               actions: <Widget>[
                 IconButton(
-                  icon: const Icon(Icons.reorder_rounded),
+                  icon: const Icon(Icons.more_horiz),
                   tooltip: 'Settings',
-                  onPressed:  ()  {
-                     Navigator.push(context, MaterialPageRoute<void>(
-                      builder: (BuildContext context) {
-                        return const Card(
-                          child: SettingsPage(),
-                        );
-                      },
-                    ));
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute<void>(
+                          builder: (BuildContext context) =>
+                              const SettingsPage(),
+                        ));
                   },
                 ),
               ],
@@ -131,19 +130,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         fontSize: 15,
                       ),
                     ),
-                    SizedBox(
-                      height: 12.0,
-                    ),
                     const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Divider(
-                        height: 18.0,
-                        thickness: 0.6,
-                        color: Color.fromARGB(255, 78, 77, 77),
-                      ),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: EdgeInsets.only(top: 20.0),
                       child: Text(
                         "My reviews",
                         style: TextStyle(
@@ -158,7 +146,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           .where('uid', isEqualTo: widget.uid)
                           .get(),
                       builder: (context, snapshot) {
-                        if (snapshot.connectionState == ConnectionState.waiting) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
                           return const Center(
                             child: CircularProgressIndicator(
                               color: Colors.white,
@@ -174,7 +163,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             crossAxisCount: 3,
                             crossAxisSpacing: 5,
                             mainAxisSpacing: 1.5,
-                            childAspectRatio: 1,
+                            
                           ),
                           itemBuilder: (context, index) {
                             DocumentSnapshot snap =

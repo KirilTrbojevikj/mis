@@ -1,5 +1,3 @@
-
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -81,21 +79,20 @@ class _PostCardState extends State<PostCard> {
       // boundary needed for web
       decoration: BoxDecoration(
         border: Border.all(
-          color: width > webScreenSize ? secondaryColor : Color.fromARGB(255, 250, 249, 249),
+          color: width > webScreenSize
+              ? secondaryColor
+              : Color.fromARGB(255, 250, 249, 249),
         ),
         color: Color.fromARGB(255, 248, 246, 246),
       ),
       padding: const EdgeInsets.symmetric(
         vertical: 10,
       ),
+
       child: Column(
         children: [
           // HEADER SECTION OF THE POST
           Container(
-            padding: const EdgeInsets.symmetric(
-              vertical: 4,
-              horizontal: 16,
-            ).copyWith(right: 0),
             child: Row(
               children: <Widget>[
                 CircleAvatar(
@@ -162,7 +159,10 @@ class _PostCardState extends State<PostCard> {
                             },
                           );
                         },
-                        icon: const Icon(Icons.more_vert,color: Colors.black,),
+                        icon: const Icon(
+                          Icons.more_vert,
+                          color: Colors.black,
+                        ),
                       )
                     : Container(),
               ],
@@ -184,8 +184,6 @@ class _PostCardState extends State<PostCard> {
               alignment: Alignment.center,
               children: [
                 SizedBox(
-                  height: MediaQuery.of(context).size.height,
-                  width: double.infinity,
                   child: Image.network(
                     widget.snap['postUrl'].toString(),
                     fit: BoxFit.cover,
@@ -250,7 +248,6 @@ class _PostCardState extends State<PostCard> {
                   ),
                 ),
               ),
-              
             ],
           ),
           //DESCRIPTION AND NUMBER OF COMMENTS
@@ -261,34 +258,47 @@ class _PostCardState extends State<PostCard> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 DefaultTextStyle(
-                    style: Theme.of(context)
-                        .textTheme
-                        .subtitle2!
-                        .copyWith(fontWeight: FontWeight.w800),
-                    child: Text(
-                      '${widget.snap['likes'].length} likes',
-                      style: const TextStyle(color: Colors.black45),
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle2!
+                      .copyWith(fontWeight: FontWeight.w800),
+                  child: Text(
+                    '${widget.snap['likes'].length} likes',
+                    style: const TextStyle(color: Colors.black45),
+                  ),
+                ),
+                Container(
+                  child: RichText(
+                    text: TextSpan(
+                      style: const TextStyle(
+                        color: Colors.black,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: ' ${widget.snap['productName']}',
+                        ),
+                      ],
                     ),
+                  ),
                 ),
                 RatingBar(
                     ignoreGestures: true,
-                    initialRating:widget.snap['rating'],
+                    initialRating: widget.snap['rating'],
                     direction: Axis.horizontal,
                     allowHalfRating: true,
                     itemCount: 5,
                     ratingWidget: RatingWidget(
-                        full: const Icon(Icons.star, color: darkOrangeColor),
+                        full: const Icon(Icons.star_rounded,
+                            color: darkOrangeColor),
                         half: const Icon(
-                          Icons.star_half,
+                          Icons.star_half_rounded,
                           color: darkOrangeColor,
                         ),
                         empty: const Icon(
-                          Icons.star_outline,
+                          Icons.star_outline_rounded,
                           color: darkOrangeColor,
                         )),
-                    onRatingUpdate: (value) {
-                    }
-                    ),
+                    onRatingUpdate: (value) {}),
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.only(
@@ -296,7 +306,9 @@ class _PostCardState extends State<PostCard> {
                   ),
                   child: RichText(
                     text: TextSpan(
-                      style: const TextStyle(color: Colors.black,),
+                      style: const TextStyle(
+                        color: Colors.black,
+                      ),
                       children: [
                         TextSpan(
                           text: widget.snap['username'].toString(),
@@ -348,5 +360,4 @@ class _PostCardState extends State<PostCard> {
       ),
     );
   }
-
 }
